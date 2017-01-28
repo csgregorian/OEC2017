@@ -1,5 +1,7 @@
 `use strict`
 
+var selected = []
+
 var cy = cytoscape({
 
     container: document.getElementById('cy'), // container to render in
@@ -13,8 +15,9 @@ var cy = cytoscape({
         {
             selector: 'node',
             style: {
-                'background-color': '#666',
+                'background-color': '#353638',
                 'label': 'data(id)',
+                'color': '#f7f9fc',
                 'text-valign': 'center',
                 'text-halign': 'center'
             }
@@ -26,7 +29,8 @@ var cy = cytoscape({
                 'width': 3,
                 'line-color': '#ccc',
                 'target-arrow-color': '#ccc',
-                'target-arrow-shape': 'triangle'
+                'target-arrow-shape': 'triangle',
+                'label': 'data(weight)'
             }
         },
 
@@ -47,7 +51,6 @@ var cy = cytoscape({
                 'height': 80
             }
         },
-
         {
             selector: 'node[type="house"]',
             style: {
@@ -55,6 +58,13 @@ var cy = cytoscape({
                 'width': 50,
                 'height': 50
             }
+        },
+        {
+          selector: '[flow="true"]',
+          style: {
+            'background-color': 'red',
+            'line-color': 'red'
+          }
         }
     ]
 });
@@ -137,6 +147,7 @@ cy.fit();
 cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
+<<<<<<< HEAD
     // console.log(event);
     cy.animate({ fit: { eles: event.cyTarget }, zoom: 1 });
 
@@ -156,11 +167,37 @@ cy.on("select", function(event) {
             console.log(ele.data('id'))
         })
     }
+=======
+  // console.log(event);
+  // cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
+
+  paths = cy.elements().dijkstra({
+    root: event.cyTarget,
+    // weight: function(edge) {
+    //   return edge.weight;
+    // }
+  })
+
+  if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+    selected = paths.pathTo(cy.$("#A-1"))
+  } else {
+    selected = paths.pathTo(cy.$("#A-2"))
+  }
+
+  selected.each(function(i, ele) {
+    ele.data('flow', 'true')
+  })
+
+>>>>>>> 6983f95565e6e18bc547c513ca83b8d49d953653
 });
 
 cy.on("unselect", function(event) {
-    console.log(event);
-    cy.animate({ fit: { eles: cy.elements() } });
+  selected.each(function(i, ele) {
+    ele.data('flow', 'false')
+  })
+
+  console.log(event);
+  cy.animate({ fit: { eles: cy.elements() } });
 });
 
 $("#console").click(function() {
