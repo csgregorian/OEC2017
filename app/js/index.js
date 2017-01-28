@@ -35,10 +35,8 @@ var cy = cytoscape({
             }
         }
     ],
-
-    layout: {
-        name: 'grid',
-        rows: 1
-    }
-
+    layout: "preset"
 });
+
+cy.center();
+cy.fit();
