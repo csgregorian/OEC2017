@@ -223,6 +223,11 @@ cy.on("unselect", function(event) {
     cy.animate({ fit: { eles: cy.elements() } });
 });
 
+//Function to get number of lit houses
+function litHouses(){
+
+}
+
 //Function to calculate cost to power house
 function transferCost(selectedPath) {
     var kWUsed = 3000; //each house uses 3mWh
@@ -237,6 +242,12 @@ function transferCost(selectedPath) {
     var cost = kWUsed * transferCostPerUnitLength * distance;
 
     return cost;
+}
+
+//Function to calculate revenue
+function revenue(){
+	var chargePerHour = 3000;
+	var profit = (chargePerHour * litHouses())
 }
 
 $("#openfile").click(function() {
