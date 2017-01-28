@@ -5,6 +5,26 @@ var textdata = "";
 var houseDatanotsplit = [];
 var houseData = [];
 
+var time = 0;
+function forward() {
+  time = Math.min(time + 1, 7)
+  update();
+}
+
+function backward() {
+  time = Math.max(time - 1, 0)
+  update();
+}
+
+function update() {
+  cy.nodes().data('lit', 'false')
+  for (var x of houseData) {
+    if (x.hour <= time) {
+      cy.$("#" + x.house).data('lit', 'true')
+    }
+  }
+}
+
 var cy = cytoscape({
 
     container: document.getElementById('cy'), // container to render in
@@ -68,6 +88,12 @@ var cy = cytoscape({
                 'background-color': 'red',
                 'line-color': 'red'
             }
+        },
+        {
+          selector: 'node[lit="true"]',
+          style: {
+            'background-color': '#55FFCC'
+          }
         }
     ]
 });
@@ -213,5 +239,6 @@ $("#console").click(function() {
 
         houseData = hours;
         console.log(houseData)
+        update();
     });
 });
