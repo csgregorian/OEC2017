@@ -541,4 +541,165 @@ var elements = [
       "weight": 4
     }
   },
+  {
+    "data": {
+      "source": "A-2",
+      "target": "A-2-01",
+      "weight": 1
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-01",
+      "target": "A-2-02",
+      "weight": 4
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-01",
+      "target": "A-2-03",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-02",
+      "target": "A-2-06",
+      "weight": 6
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-03",
+      "target": "A-2-05",
+      "weight": 5
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-02",
+      "target": "A-2-04",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-03",
+      "target": "A-2-04",
+      "weight": 4
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-04",
+      "target": "A-2-06",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-04",
+      "target": "A-2-05",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-04",
+      "target": "A-2-07",
+      "weight": 6
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-05",
+      "target": "A-2-07",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-06",
+      "target": "61",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "61",
+      "target": "62",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "62",
+      "target": "63",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "63",
+      "target": "64",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "64",
+      "target": "65",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-07",
+      "target": "71",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "71",
+      "target": "72",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "72",
+      "target": "73",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-05",
+      "target": "91",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "91",
+      "target": "92",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "A-2-03",
+      "target": "81",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "81",
+      "target": "82",
+      "weight": 0.5
+    }
+  },
 ]
