@@ -1,5 +1,6 @@
 {
   "name"    : "OEC-2017",
   "version" : "0.1.0",
-  "main"    : "main.js"
+  "main"    : "main.js",
+  "repository" : "https://github.com/AvikHasija/OEC2017"
 }
