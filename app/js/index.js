@@ -203,5 +203,17 @@ $("#openfile").click(function() {
         var newpath = textpath.split('\\').pop().split('/').pop();
 
         $("#file").text(newpath);
+        hours = [];
+
+        for (var i = 0; i < houseData.length; i++) {
+            hours.push({
+                hour: parseInt(houseData[i]),
+                house: houseData[++i],
+                power: houseData[++i] == "1" ? true : false
+            })
+        }
+
+        houseData = hours;
+        console.log(houseData);
     });
 });
