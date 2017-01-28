@@ -513,4 +513,32 @@ var elements = [
       "weight": 0.5
     }
   },
+  {
+    "data": {
+      "source": "A-1",
+      "target": "A-1-01",
+      "weight": 1
+    }
+  },
+  {
+    "data": {
+      "source": "A-1",
+      "target": "A-2",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1",
+      "target": "B-1",
+      "weight": 5
+    }
+  },
+  {
+    "data": {
+      "source": "A-2",
+      "target": "B-1",
+      "weight": 4
+    }
+  },
 ]
