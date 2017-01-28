@@ -124,3 +124,13 @@ cy.layout(options);
 cy.center();
 cy.fit();
 cy.boxSelectionEnabled()
+
+cy.on("select", function(event) {
+  console.log(event);
+  cy.animate({ fit: {eles: event.cyTarget, padding: 150 }});
+});
+
+cy.on("unselect", function(event) {
+  console.log(event);
+  cy.animate({ fit: {eles: cy.elements()}});
+});
