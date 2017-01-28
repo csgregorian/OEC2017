@@ -137,8 +137,25 @@ cy.fit();
 cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
-  console.log(event);
+  // console.log(event);
   cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
+
+  paths = cy.elements().dijkstra({
+    root: event.cyTarget,
+    // weight: function(edge) {
+    //   return edge.weight;
+    // }
+  })
+
+  if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+    paths.pathTo(cy.$("#A-1")).each(function(i, ele) {
+      console.log(ele.data('id'))
+    })
+  } else {
+    paths.pathTo(cy.$("#A-2")).each(function(i, ele) {
+      console.log(ele.data('id'))
+    })
+  }
 });
 
 cy.on("unselect", function(event) {
