@@ -1,5 +1,7 @@
 `use strict`
 
+var selected = []
+
 var cy = cytoscape({
 
     container: document.getElementById('cy'), // container to render in
@@ -26,7 +28,8 @@ var cy = cytoscape({
                 'width': 3,
                 'line-color': '#ccc',
                 'target-arrow-color': '#ccc',
-                'target-arrow-shape': 'triangle'
+                'target-arrow-shape': 'triangle',
+                'label': 'data(weight)'
             }
         },
 
@@ -47,7 +50,6 @@ var cy = cytoscape({
                 'height': 80
             }
         },
-
         {
             selector: 'node[type="house"]',
             style: {
@@ -55,6 +57,13 @@ var cy = cytoscape({
                 'width': 50,
                 'height': 50
             }
+        },
+        {
+          selector: '[flow="true"]',
+          style: {
+            'background-color': 'red',
+            'line-color': 'red'
+          }
         }
     ]
 });
@@ -138,7 +147,7 @@ cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
   // console.log(event);
-  cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
+  // cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
 
   paths = cy.elements().dijkstra({
     root: event.cyTarget,
@@ -148,19 +157,24 @@ cy.on("select", function(event) {
   })
 
   if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
-    paths.pathTo(cy.$("#A-1")).each(function(i, ele) {
-      console.log(ele.data('id'))
-    })
+    selected = paths.pathTo(cy.$("#A-1"))
   } else {
-    paths.pathTo(cy.$("#A-2")).each(function(i, ele) {
-      console.log(ele.data('id'))
-    })
+    selected = paths.pathTo(cy.$("#A-2"))
   }
+
+  selected.each(function(i, ele) {
+    ele.data('flow', 'true')
+  })
+
 });
 
 cy.on("unselect", function(event) {
-    console.log(event);
-    cy.animate({ fit: { eles: cy.elements() } });
+  selected.each(function(i, ele) {
+    ele.data('flow', 'false')
+  })
+
+  console.log(event);
+  cy.animate({ fit: { eles: cy.elements() } });
 });
 
 $("#console").click(function() {
