@@ -1,6 +1,9 @@
 `use strict`
 
 var selected = []
+var textdata = "";
+var houseDatanotsplit = [];
+var houseData = [];
 
 var cy = cytoscape({
 
@@ -197,28 +200,22 @@ cy.on("unselect", function(event) {
 });
 
 $("#console").click(function() {
-    dialog.showOpenDialog(function(fileNames) {
-        var fs = require('fs-extra');
+    var path = dialog.showOpenDialog({
+        properties: ['openFile']
+    });
 
-        function openFile() {
+    var fs = require('fs-extra');
 
-            dialog.showOpenDialog({
-                filters: [
-                    { name: 'text', extensions: ['txt'] }
-                ]
-            }, function(fileNames) {
+    console.log(path);
 
-                if (fileNames === undefined) return;
+    var textpath = String(path);
 
-                var fileName = fileNames[0];
+    fs.readFile(textpath, 'utf-8', function(err, data) {
+        textdata = data;
+        console.log(typeof data);
 
-                fs.readFile(fileName, 'utf-8', function(err, data) {
-
-                    document.getElementById("editor").value = data;
-                    console.log("data");
-
-                });
-            });
-        }
+        textdata = textdata.replace(/\r?\n|\r/g, " ");
+        houseData = textdata.split(" ");
+        console.log(houseData);
     });
 });
