@@ -148,32 +148,13 @@ cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
     // console.log(event);
-    cy.animate({ fit: { eles: event.cyTarget }, zoom: 1 });
+    // cy.animate({ fit: { eles: event.cyTarget }});
 
     paths = cy.elements().dijkstra({
         root: event.cyTarget,
-        // weight: function(edge) {
-        //   return edge.weight;
-        // }
-    })
-
-    if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
-        paths.pathTo(cy.$("#A-1")).each(function(i, ele) {
-            console.log(ele.data('id'))
-        })
-    } else {
-        paths.pathTo(cy.$("#A-2")).each(function(i, ele) {
-            console.log(ele.data('id'))
-        })
-    }
-    // console.log(event);
-    // cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
-
-    paths = cy.elements().dijkstra({
-        root: event.cyTarget,
-        // weight: function(edge) {
-        //   return edge.weight;
-        // }
+        weight: function(edge) {
+          return edge.data('weight');
+        }
     })
 
     if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
@@ -183,7 +164,11 @@ cy.on("select", function(event) {
     }
 
     selected.each(function(i, ele) {
-        ele.data('flow', 'true')
+      ele.data('flow', 'true')
+    })
+
+    cy.nodes("[flow='true']").each(function(i, ele) {
+      console.log(ele.data('id'))
     })
 });
 
