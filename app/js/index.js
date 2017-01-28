@@ -27,6 +27,10 @@ function update() {
             cy.$("#" + x.house).data('lit', 'true')
         }
     }
+
+    $("#inspector").html("Path cost: " + transferCost(selected) + "<br>" + 
+        "Total revenue: " + revenue() + "<br>" + 
+        "Lit houses: " + litHouses())
 }
 
 var cy = cytoscape({
@@ -205,6 +209,10 @@ cy.on("select", function(event) {
         selected = paths.pathTo(cy.$("#A-2"))
     }
 
+    $("#inspector").html("Path cost: " + transferCost(selected) + "<br>" + 
+        "Total revenue: " + revenue() + "<br>" + 
+        "Lit houses: " + litHouses())
+
     selected.each(function(i, ele) {
         ele.data('flow', 'true')
     })
@@ -225,7 +233,7 @@ cy.on("unselect", function(event) {
 
 //Function to get number of lit houses
 function litHouses(){
-
+    return cy.nodes("[lit='true']").length
 }
 
 //Function to calculate cost to power house
@@ -248,6 +256,7 @@ function transferCost(selectedPath) {
 function revenue(){
 	var chargePerHour = 3000;
 	var profit = (chargePerHour * litHouses())
+    return profit
 }
 
 $("#openfile").click(function() {
