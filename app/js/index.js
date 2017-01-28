@@ -60,11 +60,11 @@ var cy = cytoscape({
             }
         },
         {
-          selector: '[flow="true"]',
-          style: {
-            'background-color': 'red',
-            'line-color': 'red'
-          }
+            selector: '[flow="true"]',
+            style: {
+                'background-color': 'red',
+                'line-color': 'red'
+            }
         }
     ]
 });
@@ -147,7 +147,6 @@ cy.fit();
 cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
-<<<<<<< HEAD
     // console.log(event);
     cy.animate({ fit: { eles: event.cyTarget }, zoom: 1 });
 
@@ -167,37 +166,34 @@ cy.on("select", function(event) {
             console.log(ele.data('id'))
         })
     }
-=======
-  // console.log(event);
-  // cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
+    // console.log(event);
+    // cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
 
-  paths = cy.elements().dijkstra({
-    root: event.cyTarget,
-    // weight: function(edge) {
-    //   return edge.weight;
-    // }
-  })
+    paths = cy.elements().dijkstra({
+        root: event.cyTarget,
+        // weight: function(edge) {
+        //   return edge.weight;
+        // }
+    })
 
-  if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
-    selected = paths.pathTo(cy.$("#A-1"))
-  } else {
-    selected = paths.pathTo(cy.$("#A-2"))
-  }
+    if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+        selected = paths.pathTo(cy.$("#A-1"))
+    } else {
+        selected = paths.pathTo(cy.$("#A-2"))
+    }
 
-  selected.each(function(i, ele) {
-    ele.data('flow', 'true')
-  })
-
->>>>>>> 6983f95565e6e18bc547c513ca83b8d49d953653
+    selected.each(function(i, ele) {
+        ele.data('flow', 'true')
+    })
 });
 
 cy.on("unselect", function(event) {
-  selected.each(function(i, ele) {
-    ele.data('flow', 'false')
-  })
+    selected.each(function(i, ele) {
+        ele.data('flow', 'false')
+    })
 
-  console.log(event);
-  cy.animate({ fit: { eles: cy.elements() } });
+    console.log(event);
+    cy.animate({ fit: { eles: cy.elements() } });
 });
 
 $("#console").click(function() {
