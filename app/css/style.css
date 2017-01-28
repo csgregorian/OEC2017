@@ -3,3 +3,121 @@
     height: 500px;
     display: block;
 }
+
+body {
+    padding: 20px;
+    font-family: helvetica-nueue helvetica sans serif;
+    text-align: center;
+}
+
+.bar {
+    height: 8px;
+    background: #cde;
+    width: 100%;
+    position: relative;
+    top: 13px;
+    left: 0;
+}
+
+.timeline {
+    white-space: nowrap;
+    overflow-x: scroll;
+    padding: 80px 0 10px 0;
+    position: relative;
+}
+
+.entry {
+    display: inline-block;
+    vertical-align: top;
+    background: #eeeeee;
+    color: #112233;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    border-top: 4px solid #06182E;
+    border-bottom: 1px solid #06182E;
+    border-left: 1px solid #06182E;
+    border-right: 1px solid #06182E;
+    border-radius: 8px;
+    min-width: 150px;
+    max-width: 350px;
+    margin-left: 20px;
+    min-height: 550px;
+    white-space: normal;
+}
+
+.entry img {
+    display: block;
+    max-width: 80%;
+    max-height: 250px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry:after {
+    content: '';
+    display: block;
+    background: #eee;
+    width: 15px;
+    height: 15px;
+    border-radius: 12px;
+    border: 2px solid #8899ff;
+    position: absolute;
+    left: 50%;
+    top: -83px;
+    margin-left: -9px;
+}
+
+.entry:before {
+    content: '';
+    display: block;
+    background: #ccddee;
+    width: 5px;
+    height: 66px;
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    margin-left: -2px;
+}
+
+.entry h1 {
+    color: #334455;
+    font-size: 18px;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.entry h2 {
+    color: #220000;
+    font-family: Helvetica, serif;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.entry h3 {
+    color: #770000;
+    font-family: Helvetica, serif;
+    letter-spacing: .1em;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.entry li {
+    text-align: left;
+}
+
+.entry p {
+    min-width: 200px;
+    max-width: 450px;
+    word-break: break-all;
+    word-wrap: break-word;
+    line-height: 130%;
+    text-align: left;
+}
+
+</style>
