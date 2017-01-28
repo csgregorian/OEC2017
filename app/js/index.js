@@ -7,23 +7,24 @@ var houseData = [];
 var textFileName = "";
 
 var time = 0;
+
 function forward() {
-  time = Math.min(time + 1, 7)
-  update();
+    time = Math.min(time + 1, 7)
+    update();
 }
 
 function backward() {
-  time = Math.max(time - 1, 0)
-  update();
+    time = Math.max(time - 1, 0)
+    update();
 }
 
 function update() {
-  cy.nodes().data('lit', 'false')
-  for (var x of houseData) {
-    if (x.hour <= time) {
-      cy.$("#" + x.house).data('lit', 'true')
+    cy.nodes().data('lit', 'false')
+    for (var x of houseData) {
+        if (x.hour <= time) {
+            cy.$("#" + x.house).data('lit', 'true')
+        }
     }
-  }
 }
 
 var cy = cytoscape({
@@ -91,10 +92,10 @@ var cy = cytoscape({
             }
         },
         {
-          selector: 'node[lit="true"]',
-          style: {
-            'background-color': '#55FFCC'
-          }
+            selector: 'node[lit="true"]',
+            style: {
+                'background-color': '#55FFCC'
+            }
         }
     ]
 });
@@ -177,16 +178,17 @@ cy.fit();
 cy.boxSelectionEnabled()
 
 function delete_(node1, node2) {
-  cy.remove("[source='" + node1 + "'][target='" + node2 + "']")
-  cy.remove("[target='" + node1 + "'][source='" + node2 + "']")
+    cy.remove("[source='" + node1 + "'][target='" + node2 + "']")
+    cy.remove("[target='" + node1 + "'][source='" + node2 + "']")
+    console.log("hello");
 }
 
 cy.on("select", function(event) {
     // console.log(event);
     // cy.animate({ fit: { eles: event.cyTarget }});)))
     // if (event.cyTarget.data('source') && event.cyTarget.data('target')) {
-      delete_(event.cyTarget.data('source'), event.cyTarget.data('target'))
-    // }
+    delete_(event.cyTarget.data('source'), event.cyTarget.data('target'))
+        // }
 
     paths = cy.elements().dijkstra({
         root: event.cyTarget,
@@ -220,18 +222,18 @@ cy.on("unselect", function(event) {
 });
 
 //Function to calculate cost to power house
-function transferCost (selectedPath){
-	var kWUsed = 3000; //each house uses 3mWh
-	var transferCostPerUnitLength = 0.05; //5 cents
-	var distance = 0;
-	if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+function transferCost(selectedPath) {
+    var kWUsed = 3000; //each house uses 3mWh
+    var transferCostPerUnitLength = 0.05; //5 cents
+    var distance = 0;
+    if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
         distance = paths.distanceTo(cy.$("#A-1"));
     } else {
         distance = paths.distanceTo(cy.$("#A-2"));
     }
 
     var cost = kWUsed * transferCostPerUnitLength * distance;
-    
+
     return cost;
 }
 

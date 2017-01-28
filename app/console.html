@@ -363,8 +363,8 @@
     </style>
 
     <section id="home">
-        <h2>CLI - Command Line Interface Simulation</h2>
-        <p>A fun experiment for displaying simple info in a geeky manner.</p>
+        <h2>Power Grid</h2>
+        <p>Enter commands to start using system</p>
         <p><span>Type 'help' + <kbd>Enter</kbd> -- for available commands.</span></p>
     </section>
 
@@ -398,19 +398,25 @@
                 <p><span>Type 'help' + <kbd>Enter</kbd> -- for available commands.</span></p>
     </section>
 
+    <section id="disable">
+        <p>Command not found!
+            <p>
+                <p><span>Type 'help' + <kbd>Enter</kbd> -- for available commands.</span></p>
+    </section>
+
     <section id="help">
         <h2><span>&raquo;Help?</span></h2>
         <p><span>Type [command] + <kbd>Enter</kbd></span></p>
         <ul>
-            <li>'home' -- Thats obvious!</li>
+            <li>'home' -- Reset terminal</li>
             <li>'about' -- What's this for</li>
             <li>'usage' -- How to</li>
-            <li>'download' -- Download + license</li>
+            <li>'disable' + 'command' -- disable two wires</li>
             <li>'help' -- displays this list</li>
         </ul>
     </section>
 
-    <span class="command">syndicatefx:/$<input type="text"></span>
+    <span class="command">powergrid:/$<input type="text"></span>
     </main>
 
     <script>
@@ -537,13 +543,24 @@
                     $('.command').hide();
                     var destination = $('input[type="text"]').val();
 
-                    // Display section with id == destination and hide all others
-                    $('section[id="' + destination + '"]').addClass('open').siblings().removeClass('open');
+                    var matches = destination.split(/\b/)
 
-                    // If destination does not match our array of section ids, display error section
-                    if ($.inArray(destination, sectionArray) == -1) {
-                        $('#error').addClass('open');
-                        $('#error').siblings().removeClass('open');
+                    var result = destination.split(/\b/)[0];
+
+                    console.log(result);
+
+                    if (result == "disable") {
+                        var removewire = [matches[1], matches[2]];
+                        window.parent.delete_(matches[1], matches[2]);
+                    } else {
+                        // Display section with id == destination and hide all others
+                        $('section[id="' + destination + '"]').addClass('open').siblings().removeClass('open');
+
+                        // If destination does not match our array of section ids, display error section
+                        if ($.inArray(destination, sectionArray) == -1) {
+                            $('#error').addClass('open');
+                            $('#error').siblings().removeClass('open');
+                        }
                     }
 
                     // All sections with class .open init textTyper
