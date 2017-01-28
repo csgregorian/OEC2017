@@ -211,6 +211,22 @@ cy.on("unselect", function(event) {
     cy.animate({ fit: { eles: cy.elements() } });
 });
 
+//Function to calculate cost to power house
+function transferCost (selectedPath){
+	var kWUsed = 3000; //each house uses 3mWh
+	var transferCostPerUnitLength = 0.05; //5 cents
+	var distance = 0;
+	if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+        distance = paths.distanceTo(cy.$("#A-1"));
+    } else {
+        distance = paths.distanceTo(cy.$("#A-2"));
+    }
+
+    var cost = kWUsed * transferCostPerUnitLength * distance;
+    
+    return cost;
+}
+
 $("#openfile").click(function() {
     var path = dialog.showOpenDialog({
         properties: ['openFile']
