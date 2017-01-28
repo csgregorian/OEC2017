@@ -31,21 +31,27 @@ var cy = cytoscape({
         {
             selector: 'node[type="generator"]',
             style: {
-                'shape': 'hexagon'
+                'shape': 'hexagon',
+                'width': 120,
+                'height': 120
             }
         },
 
         {
             selector: 'node[type="control"]',
             style: {
-                'shape': 'ellipse'
+                'shape': 'ellipse',
+                'width': 80,
+                'height': 80
             }
         },
 
         {
             selector: 'node[type="house"]',
             style: {
-                'shape': 'rectangle'
+                'shape': 'rectangle',
+                'width': 50,
+                'height': 50
             }
         }
     ]
