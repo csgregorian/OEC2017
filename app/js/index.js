@@ -137,25 +137,25 @@ cy.fit();
 cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
-  // console.log(event);
-  cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
+    // console.log(event);
+    cy.animate({ fit: { eles: event.cyTarget }, zoom: 1 });
 
-  paths = cy.elements().dijkstra({
-    root: event.cyTarget,
-    // weight: function(edge) {
-    //   return edge.weight;
-    // }
-  })
+    paths = cy.elements().dijkstra({
+        root: event.cyTarget,
+        // weight: function(edge) {
+        //   return edge.weight;
+        // }
+    })
 
-  if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
-    paths.pathTo(cy.$("#A-1")).each(function(i, ele) {
-      console.log(ele.data('id'))
-    })
-  } else {
-    paths.pathTo(cy.$("#A-2")).each(function(i, ele) {
-      console.log(ele.data('id'))
-    })
-  }
+    if (paths.distanceTo(cy.$("#A-1")) <= paths.distanceTo(cy.$("#A-2"))) {
+        paths.pathTo(cy.$("#A-1")).each(function(i, ele) {
+            console.log(ele.data('id'))
+        })
+    } else {
+        paths.pathTo(cy.$("#A-2")).each(function(i, ele) {
+            console.log(ele.data('id'))
+        })
+    }
 });
 
 cy.on("unselect", function(event) {
@@ -164,8 +164,28 @@ cy.on("unselect", function(event) {
 });
 
 $("#console").click(function() {
-    const { dialog } = require('electron').remote
-    console.log(dialog)
+    dialog.showOpenDialog(function(fileNames) {
+        var fs = require('fs-extra');
 
-    dialog.showOpenDialog(options = openFile)
+        function openFile() {
+
+            dialog.showOpenDialog({
+                filters: [
+                    { name: 'text', extensions: ['txt'] }
+                ]
+            }, function(fileNames) {
+
+                if (fileNames === undefined) return;
+
+                var fileName = fileNames[0];
+
+                fs.readFile(fileName, 'utf-8', function(err, data) {
+
+                    document.getElementById("editor").value = data;
+                    console.log("data");
+
+                });
+            });
+        }
+    });
 });
