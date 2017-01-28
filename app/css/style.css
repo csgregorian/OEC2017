@@ -1,7 +1,52 @@
  #cy {
-     width: 100%;
-     height: 100%;
+     width: 75vw;
+     height: 80vh;
      position: absolute;
      top: 0px;
      left: 0px;
+
+ }
+
+ /* side bar */
+
+ aside {
+ 	width: 25vw;
+ 	height: 100%;
+ 	position: absolute;
+ 	right: 0;
+
+ 	color: white;
+ 	background-color: #F00;
+ }
+
+#status {
+	width: 100%;
+	height: 25%;
+
+	background-color: #111;
+}
+
+#navigation {
+	width: 100%;
+	height: 30%;
+
+	background-color: #333;
+}
+
+#inspector {
+	width: 100;
+	height: 45%;
+
+	background-color: #555;
+}
+
+ #console {
+ 	width: 75vw;
+ 	height: 20vh;
+ 	position: absolute;
+
+ 	bottom: 0;
+
+ 	color: white;
+ 	background-color: #111;
  }
