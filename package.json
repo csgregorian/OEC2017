@@ -5,7 +5,6 @@
   "repository": "https://github.com/AvikHasija/OEC2017",
   "dependencies": {
     "cytoscape": "^2.7.14",
-    "fs-extra": "^2.0.0",
-    "remote": "^0.2.6"
+    "fs-extra": "^2.0.0"
   }
 }
