@@ -30,3 +30,4 @@ var cy = cytoscape({
 
 cy.center();
 cy.fit();
+cy.boxSelectionEnabled()
