@@ -6,6 +6,9 @@ var cy = cytoscape({
 
     elements: elements,
 
+    minZoom: 0.25,
+    maxZoom: 5,
+
     style: [ // the stylesheet for the graph
         {
             selector: 'node',
@@ -127,7 +130,7 @@ cy.boxSelectionEnabled()
 
 cy.on("select", function(event) {
   console.log(event);
-  cy.animate({ fit: {eles: event.cyTarget, padding: 150 }});
+  cy.animate({ fit: {eles: event.cyTarget}, zoom: 1});
 });
 
 cy.on("unselect", function(event) {

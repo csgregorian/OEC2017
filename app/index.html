@@ -8,14 +8,31 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <!-- Insert this line above script imports  -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+
+    <!-- normal script imports etc  -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootswatch.min.css">
-    <script type="text/javascript" src="js/map.js"></script>
-    <script src="js/cytoscape.min.js"></script>
     <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/cytoscape.min.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>
+        if (window.module) module = window.module;
+    </script>
 </head>
 
 <body>
+<<<<<<< HEAD
 
 
     <main id="cy">
@@ -30,6 +47,13 @@
     </aside>
 
     <div id="console">console</div>
+=======
+    <div id="infobar"></div>
+    <div id="cy"></div>
+    <div id="console"></div>
+    <div id="timeline"></div>
+    <button id="gettext"></div>
+>>>>>>> d63dc0f4f1f2772c47deeedd223386e9353e73fc
 
     <script src="js/index.js"></script>
 </body>
