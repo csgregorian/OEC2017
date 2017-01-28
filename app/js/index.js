@@ -8,12 +8,14 @@ var textFileName = "";
 
 var time = 0;
 function forward() {
-  time = Math.min(time + 1, 7)
+  time = Math.min(time + 1, 8)
+  $("#num").html('<a href="#">' + time + "</a>");
   update();
 }
 
 function backward() {
   time = Math.max(time - 1, 0)
+  $("#num").html('<a href="#">' + time + "</a>");
   update();
 }
 
