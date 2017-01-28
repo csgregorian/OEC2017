@@ -1,169 +1,169 @@
 var elements = [
   {
     "data": {
-      "id": 34,
+      "id": "34",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 33,
+      "id": "33",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 32,
+      "id": "32",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 31,
+      "id": "31",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 23,
+      "id": "23",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 22,
+      "id": "22",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 21,
+      "id": "21",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 41,
+      "id": "41",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 42,
+      "id": "42",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 43,
+      "id": "43",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 13,
+      "id": "13",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 12,
+      "id": "12",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 11,
+      "id": "11",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 51,
+      "id": "51",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 52,
+      "id": "52",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 53,
+      "id": "53",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 61,
+      "id": "61",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 62,
+      "id": "62",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 63,
+      "id": "63",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 64,
+      "id": "64",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 65,
+      "id": "65",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 71,
+      "id": "71",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 72,
+      "id": "72",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 73,
+      "id": "73",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 81,
+      "id": "81",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 82,
+      "id": "82",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 91,
+      "id": "91",
       "type": "house"
     }
   },
   {
     "data": {
-      "id": 92,
+      "id": "92",
       "type": "house"
     }
   },
@@ -287,4 +287,145 @@ var elements = [
       "type": "generator"
     }
   },
+
+  {
+    "data": {
+      "source": "34",
+      "target": "33",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "33",
+      "target": "32",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "32",
+      "target": "31",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "31",
+      "target": "A-1-10",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-10",
+      "target": "A-1-08",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-10",
+      "target": "A-1-09",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-08",
+      "target": "A-1-07",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-09",
+      "target": "A-1-07",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-08",
+      "target": "A-1-05",
+      "weight": 5
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-07",
+      "target": "A-1-05",
+      "weight": 4
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-07",
+      "target": "A-1-06",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-09",
+      "target": "A-1-06",
+      "weight": 5
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-05",
+      "target": "A-1-02",
+      "weight": 8
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-04",
+      "target": "A-1-02",
+      "weight": 5
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-07",
+      "target": "A-1-04",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-04",
+      "target": "A-1-03",
+      "weight": 2
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-06",
+      "target": "A-1-03",
+      "weight": 6
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-02",
+      "target": "A-1-01",
+      "weight": 3
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-04",
+      "target": "A-1-01",
+      "weight": 8
+    }
+  },
+  {
+    "data": {
+      "source": "A-1-03",
+      "target": "A-1-01",
+      "weight": 5
+    }
+  }
 ]
