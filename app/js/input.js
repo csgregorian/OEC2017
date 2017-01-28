@@ -1,6 +1,6 @@
 var remote = require('remote'); // Load remote compnent that contains the dialog dependency
 var dialog = remote.require('dialog'); // Load the dialogs component of the OS
-var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+var fs = require('fs-extra'); // Load the File System to execute our common tasks (CRUD)
 
 $('#gettext').click(function() {
     dialog.showOpenDialog(function(fileNames) {
