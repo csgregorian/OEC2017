@@ -50,3 +50,4 @@ cy.layout( options );
 
 cy.center();
 cy.fit();
+cy.boxSelectionEnabled()
