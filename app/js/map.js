@@ -427,5 +427,90 @@ var elements = [
       "target": "A-1-01",
       "weight": 5
     }
-  }
+  },
+
+  {
+    "data": {
+      "source": "23",
+      "target": "22",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "22",
+      "target": "21",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "21",
+      "target": "A-1-08",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "43",
+      "target": "42",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "42",
+      "target": "41",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "41",
+      "target": "A-1-09",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "13",
+      "target": "12",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "12",
+      "target": "11",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "11",
+      "target": "A-1-05",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "53",
+      "target": "52",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "52",
+      "target": "51",
+      "weight": 0.5
+    }
+  },
+  {
+    "data": {
+      "source": "51",
+      "target": "A-1-06",
+      "weight": 0.5
+    }
+  },
 ]
