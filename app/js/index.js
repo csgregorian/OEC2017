@@ -4,6 +4,7 @@ var selected = []
 var textdata = "";
 var houseDatanotsplit = [];
 var houseData = [];
+var textFileName = "";
 
 var time = 0;
 function forward() {
@@ -182,7 +183,7 @@ cy.on("select", function(event) {
     paths = cy.elements().dijkstra({
         root: event.cyTarget,
         weight: function(edge) {
-          return edge.data('weight');
+            return edge.data('weight');
         }
     })
 
@@ -193,11 +194,11 @@ cy.on("select", function(event) {
     }
 
     selected.each(function(i, ele) {
-      ele.data('flow', 'true')
+        ele.data('flow', 'true')
     })
 
     cy.nodes("[flow='true']").each(function(i, ele) {
-      console.log(ele.data('id'))
+        console.log(ele.data('id'))
     })
 });
 
@@ -210,31 +211,32 @@ cy.on("unselect", function(event) {
     cy.animate({ fit: { eles: cy.elements() } });
 });
 
-$("#console").click(function() {
+$("#openfile").click(function() {
     var path = dialog.showOpenDialog({
         properties: ['openFile']
     });
 
     var fs = require('fs-extra');
 
-    console.log(path);
-
     var textpath = String(path);
 
     fs.readFile(textpath, 'utf-8', function(err, data) {
         textdata = data;
-        console.log(typeof data);
 
         textdata = textdata.replace(/\r?\n|\r/g, " ");
         houseData = textdata.split(" ");
-        hours = []
-        
+        console.log(houseData);
+        var newpath = textpath.split('\\').pop().split('/').pop();
+
+        $("#file").text(newpath);
+        hours = [];
+
         for (var i = 0; i < houseData.length; i++) {
-          hours.push({
-            hour: parseInt(houseData[i]),
-            house: houseData[++i],
-            power: houseData[++i] == "1" ? true : false
-          })
+            hours.push({
+                hour: parseInt(houseData[i]),
+                house: houseData[++i],
+                power: houseData[++i] == "1" ? true : false
+            })
         }
 
         houseData = hours;
