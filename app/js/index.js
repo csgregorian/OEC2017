@@ -176,9 +176,17 @@ cy.center();
 cy.fit();
 cy.boxSelectionEnabled()
 
+function delete_(node1, node2) {
+  cy.remove("[source='" + node1 + "'][target='" + node2 + "']")
+  cy.remove("[target='" + node1 + "'][source='" + node2 + "']")
+}
+
 cy.on("select", function(event) {
     // console.log(event);
-    // cy.animate({ fit: { eles: event.cyTarget }});
+    // cy.animate({ fit: { eles: event.cyTarget }});)))
+    // if (event.cyTarget.data('source') && event.cyTarget.data('target')) {
+      delete_(event.cyTarget.data('source'), event.cyTarget.data('target'))
+    // }
 
     paths = cy.elements().dijkstra({
         root: event.cyTarget,
